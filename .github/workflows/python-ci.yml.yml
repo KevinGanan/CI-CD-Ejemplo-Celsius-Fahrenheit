@@ -1,0 +1,26 @@
+# .github/workflows/python-ci.yml
+
+name: CI para conversión de temperatura
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Clonar repositorio
+      uses: actions/checkout@v3
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Instalar dependencias
+      run: |
+        pip install pytest
+
+    - name: Ejecutar pruebas
+      run: |pytest
+        pytest
